@@ -8,20 +8,40 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#list-video" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="list-video" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+		<div class="right_col" role="main">
+		<div class="">
+			<div class="page-title">
+				<div class="title_left">
+					<h3>
+						${entityName}
+						<small><g:message code="default.list.label" args="['']" /></small>
+					</h3>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
 			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
+				<script type="text/javascript">
+				$(function(){
+					new PNotify({
+                        title: 'Mensaje',
+                        text: '${flash.message}',
+                        type: 'info',
+                        styling: 'bootstrap3'
+                    });
+			    });
+				</script>
 			</g:if>
-			<table>
-			<thead>
+			
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="x_panel">
+						<div class="x_content">
+							<p class="text-muted font-13 m-b-30">
+								<g:message code="default.table.description" />
+							</p>
+							<table id="datatable-buttons"
+								class="table table-striped table-bordered">
 					<tr>
 					
 						<th><g:message code="video.cliente.label" default="Cliente" /></th>
@@ -58,8 +78,10 @@
 				</g:each>
 				</tbody>
 			</table>
-			<div class="pagination">
-				<g:paginate total="${videoInstanceCount ?: 0}" />
+			</div>
+			</div>
+			</div>
+			</div>
 			</div>
 		</div>
 	</body>

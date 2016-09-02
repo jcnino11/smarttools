@@ -38,7 +38,7 @@
 					<div class="x_panel">
 						<div class="x_content">
 							<p class="text-muted font-13 m-b-30">
-								<g:message code="default.description.table" />
+								<g:message code="default.table.description" />
 							</p>
 							<table id="datatable-buttons"
 								class="table table-striped table-bordered">

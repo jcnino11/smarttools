@@ -11,7 +11,7 @@ class PersonaController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 50)
+        params.max = Math.min(max ?: 10, 100)
         respond Persona.list(params), model:[personaInstanceCount: Persona.count()]
     }
 

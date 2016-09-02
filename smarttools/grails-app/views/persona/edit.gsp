@@ -1,41 +1,81 @@
 <%@ page import="com.smarttools.Persona" %>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'persona.label', default: 'Persona')}" />
-		<title><g:message code="default.edit.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#edit-persona" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="edit-persona" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+<head>
+<meta name="layout" content="main">
+<g:set var="entityName"
+	value="${message(code: 'persona.label', default: 'Persona')}" />
+<title><g:message code="default.edit.label" args="[entityName]" /></title>
+</head>
+<body>
+	<div class="right_col" role="main">
+		<div class="">
+			<div class="page-title">
+				<div class="title_left">
+					<h3>
+						${entityName}
+						<small><g:message code="default.edit.label" args="['']" /></small>
+					</h3>
+				</div>
+			</div>
+			<div class="clearfix"></div>
 			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
+				<script type="text/javascript">
+				$(function(){
+					new PNotify({
+                        title: 'Mensaje',
+                        text: '${flash.message}',
+                        type: 'info',
+                        styling: 'bootstrap3'
+                    });
+			    });
+				</script>
 			</g:if>
 			<g:hasErrors bean="${personaInstance}">
-			<ul class="errors" role="alert">
 				<g:eachError bean="${personaInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+					<script type="text/javascript">
+					$(function(){
+						new PNotify({
+	                        title: 'Error',
+	                        text: '${message(error: error)}',
+								type : 'error',
+								styling : 'bootstrap3'
+							});
+						});
+					</script>
 				</g:eachError>
-			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:personaInstance, action:'update']" method="PUT" >
-				<g:hiddenField name="version" value="${personaInstance?.version}" />
-				<fieldset class="form">
-					<g:render template="form"/>
-				</fieldset>
-				<fieldset class="buttons">
-					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-				</fieldset>
-			</g:form>
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>
+								<g:message code="default.form.edit.label" />
+								<small><g:message code="default.form.edit.description" /></small>
+							</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+							<br />
+							<g:form data-parsley-validate class="form-horizontal form-label-left"
+								url="[resource:personaInstance, action:'update']" method="PUT"
+								>
+								<g:hiddenField name="version"
+									value="${personaInstance?.version}" />
+								<g:render template="form" />
+								<div class="ln_solid"></div>
+								<div class="form-group">
+									<div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+										<g:actionSubmit class="btn btn-success save" action="update"
+											value="${message(code: 'default.button.update.label', default: 'Update')}" />
+									</div>
+								</div>
+							</g:form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</body>
+	</div>
+</body>
 </html>

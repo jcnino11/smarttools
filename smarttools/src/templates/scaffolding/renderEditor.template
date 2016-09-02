@@ -48,11 +48,12 @@
 
     private renderStringEditor(domainClass, property) {
         if (!cp) {
-            return "<g:textField name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return '<div class="col-md-4 col-sm-4 col-xs-12"><g:textField class="form-control col-md-7 col-xs-12 \${hasErrors(bean:' << domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" /></div>'
         } else {
 			def sb = new StringBuilder("")
+			sb << '<div class="col-md-4 col-sm-4 col-xs-12">'
             if ("textarea" == cp.widget || (cp.maxSize > 250 && !cp.password && !cp.inList)) {
-                sb << '<g:textArea name="' << property.name << '"'
+                sb << '<g:textArea class="form-control" name="' << property.name << '"'
  				sb << ' cols="40" rows="5"'
 				if (cp.maxSize) sb << ' maxlength="' << cp.maxSize << '"'
 				if (isRequired()) sb << ' required=""'
@@ -60,6 +61,7 @@
 				sb << '/>'
             } else if (cp.inList) {
 				sb << '<g:select name="' << property.name << '"'
+				sb << ' class="select2_single form-control col-md-7 col-xs-12 \${hasErrors(bean:'<< domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}"'
 				sb << ' from="${' << "${domainInstance}.constraints.${property.name}.inList" << '}"'
 				if (isRequired()) sb << ' required=""'
 				sb << ' value="${' << "${domainInstance}?.${property.name}" << '}"'
@@ -68,13 +70,13 @@
 				sb << '/>'
 			} else {
 				if (cp.password) {
-					sb << '<g:field type="password"'
+					sb << '<g:field class="form-control col-md-7 col-xs-12 \${hasErrors(bean:' << domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}" type="password"'
 				} else if (cp.url) {
-					sb << '<g:field type="url"'
+					sb << '<g:field class="form-control col-md-7 col-xs-12 \${hasErrors(bean:' << domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}" type="url"'
 				} else if (cp.email) {
-					sb << '<g:field type="email"'
+					sb << '<g:field class="form-control col-md-7 col-xs-12 \${hasErrors(bean:' << domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}" type="email"'
 				} else {
-					sb << '<g:textField'
+					sb << '<g:textField class="form-control col-md-7 col-xs-12 \${hasErrors(bean:'<< domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}"'
 				}
 				sb << ' name="' << property.name << '"'
 				if (cp.maxSize) sb << ' maxlength="' << cp.maxSize << '"'
@@ -84,18 +86,22 @@
 				sb << ' value="${' << "${domainInstance}?.${property.name}" << '}"'
 				sb << '/>'
 			}
+			
+			sb << '</div>'
 			sb as String
         }
     }
 
     private renderByteArrayEditor(domainClass, property) {
-        return "<input type=\"file\" id=\"${property.name}\" name=\"${property.name}\" />"
+        return '<div class=\"col-md-4 col-sm-4 col-xs-12\"><input class=\"form-control col-md-7 col-xs-12 \${hasErrors(bean:' << domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}\" type=\"file\" id=\"' << property.name << '\" name=\"' << property.name << '\" /></div>'
     }
 
     private renderManyToOne(domainClass,property) {
         if (property.association) {
 			def sb = new StringBuilder()
+			sb << '<div class="col-md-4 col-sm-4 col-xs-12">'
             sb << '<g:select'
+            sb << ' class="select2_single form-control col-md-7 col-xs-12 \${hasErrors(bean:'<< domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}" tabindex="-1"'
 			// id is "x" and name is "x.id" as the label will have for="x" and "." in an id will confuse CSS
  			sb << ' id="' << property.name << '"'
  			sb << ' name="' << property.name << '.id"'
@@ -103,9 +109,8 @@
  			sb << ' optionKey="id"'
 			if (isRequired()) sb << ' required=""'
  			sb << ' value="${' << "${domainInstance}?.${property.name}" << '?.id}"'
- 			sb << ' class="many-to-one"'
  			sb << renderNoSelection(property)
- 			sb << '/>'
+ 			sb << '/></div>'
 			sb as String
         }
     }
@@ -139,14 +144,26 @@
         def sw = new StringWriter()
         def pw = new PrintWriter(sw)
         pw.println()
-        pw.println '<ul class="one-to-many">'
-        pw.println "<g:each in=\"\${${domainInstance}?.${property.name}?}\" var=\"${property.name[0]}\">"
-        pw.println "    <li><g:link controller=\"${property.referencedDomainClass.propertyName}\" action=\"show\" id=\"\${${property.name[0]}.id}\">\${${property.name[0]}?.encodeAsHTML()}</g:link></li>"
-        pw.println '</g:each>'
-		pw.println '<li class="add">'
-        pw.println "<g:link controller=\"${property.referencedDomainClass.propertyName}\" action=\"create\" params=\"['${domainClass.propertyName}.id': ${domainInstance}?.id]\">\${message(code: 'default.add.label', args: [message(code: '${property.referencedDomainClass.propertyName}.label', default: '${property.referencedDomainClass.shortName}')])}</g:link>"
-		pw.println '</li>'
-        pw.println '</ul>'
+        pw.println "<div class=\"col-md-4 col-sm-4 col-xs-12 accordion\" id=\"accordion1\" role=\"tablist\" aria-multiselectable=\"true\">"
+        pw.println "	<div class=\"panel\">"
+        pw.println " 		<a class=\"panel-heading collapsed\" role=\"tab\" id=\"headingOne1\" data-toggle=\"collapse\" data-parent=\"#accordion1\" href=\"#collapseOne1\" aria-expanded=\"true\" aria-controls=\"collapseOne\">"
+        pw.println "        	<h3 class=\"panel-title\"><g:message code=\"default.list.label\" default=\"Listado\" /></h3>"
+        pw.println "        </a>"
+        pw.println "    	<div id=\"collapseOne1\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\">"
+        pw.println "			<div class=\"panel-body\">"
+        pw.println "				<ul class=\"one-to-many\">"
+        pw.println "				<g:each in=\"\${${domainInstance}?.${property.name}?}\" var=\"${property.name[0]}\">"
+        pw.println "    				<li><g:link class=\"btn btn-default btn-xs\" controller=\"${property.referencedDomainClass.propertyName}\" action=\"show\" id=\"\${${property.name[0]}.id}\">\${${property.name[0]}?.encodeAsHTML()}</g:link></li>"
+        pw.println "			</g:each>"
+		pw.println "			<li>"
+        pw.println "			<g:link class=\"btn btn-info btn-xs\" controller=\"${property.referencedDomainClass.propertyName}\" action=\"create\" params=\"['${domainClass.propertyName}.id': ${domainInstance}?.id]\">\${message(code: 'default.add.label', args: [message(code: '${property.referencedDomainClass.propertyName}.label', default: '${property.referencedDomainClass.shortName}')])}</g:link>"
+		pw.println "			</li>"
+        pw.println "			</ul>"
+        pw.println "			</div>"
+        pw.println "		</div>"
+        pw.println "	</div>"
+        pw.println "</div>"
+        pw.println ""
         return sw.toString()
     }
 
@@ -195,14 +212,15 @@
 
     private renderBooleanEditor(domainClass, property) {
         if (!cp) {
-            return "<g:checkBox name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<div class=\"col-md-9 col-sm-9 col-xs-12\"><div class=\"\"><label><g:checkBox class=\"js-switch\" name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" /></label></div></div>"
         } else {
-            def sb = new StringBuilder("<g:checkBox name=\"${property.name}\" ")
+            def sb = new StringBuilder("<div class=\"col-md-9 col-sm-9 col-xs-12\"><div class=\"\"><label>")
+            sb << "<g:checkBox class=\"js-switch\" name=\"${property.name}\" "
             if (cp.widget) sb << "widget=\"${cp.widget}\" ";
             cp.attributes.each { k, v ->
                 sb << "${k}=\"${v}\" "
             }
-            sb << "value=\"\${${domainInstance}?.${property.name}}\" />"
+            sb << "value=\"\${${domainInstance}?.${property.name}}\" /></label></div></div>"
             return sb.toString()
         }
     }
@@ -210,21 +228,29 @@
     private renderDateEditor(domainClass, property) {
         def precision = (property.type == Date || property.type == java.sql.Date || property.type == Calendar) ? "day" : "minute";
         if (!cp) {
-            return "<g:datePicker name=\"${property.name}\" precision=\"${precision}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+        	def sb = new StringBuilder('<div class="col-md-4 col-sm-4 col-xs-12">')
+            sb << '	<g:field class="form-control date-picker col-md-7 col-xs-12 \${hasErrors(bean:'<< domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}"'
+            sb << '	name=\"' << property.name << ' \" precision=\"' << precision << '\" value=\"\${formatDate(date:${domainInstance}?.${property.name})}\" type="text"/>'
+            sb << "<g:hiddenField name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            sb << '</div>'
         } else {
             if (!cp.editable) {
                 return "\${${domainInstance}?.${property.name}?.toString()}"
             } else {
-                def sb = new StringBuilder("<g:datePicker name=\"${property.name}\" ")
+                def sb = new StringBuilder('<div class="col-md-4 col-sm-4 col-xs-12">')
+                sb << '<g:field class="form-control date-picker col-md-7 col-xs-12 \${hasErrors(bean:'<< domainClass.propertyName << 'Instance, field:\'' << property.name << '\', \'parsley-error\')}"'
+                sb << ' name=\"' << property.name << '\" type="text"'
                 if (cp.format) sb << "format=\"${cp.format}\" "
                 if (cp.widget) sb << "widget=\"${cp.widget}\" "
                 cp.attributes.each { k, v ->
                     sb << "${k}=\"${v}\" "
                 }
                 if (!cp.attributes.precision) {
-                    sb << "precision=\"${precision}\" "
+                    sb << " precision=\"${precision}\" "
                 }
-                sb << " value=\"\${${domainInstance}?.${property.name}}\" ${renderNoSelection(property)} />"
+                sb << " value=\"\${formatDate(date:${domainInstance}?.${property.name})}\" ${renderNoSelection(property)} />"
+                sb << "<g:hiddenField name=\"${property.name}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+                sb << ' </div>'
 
                 return sb.toString()
             }
