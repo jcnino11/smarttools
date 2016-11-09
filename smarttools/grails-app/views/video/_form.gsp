@@ -1,31 +1,54 @@
 <%@ page import="com.smarttools.Video" %>
 
+<div class="form-group">
+	<label class="control-label col-md-3 col-sm-3 col-xs-12"
+		for="concurso"> <g:message
+			code="video.concurso.label" default="Concurso" /> <span
+		class="required">*</span>
+	</label>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+		<g:select
+			class="select2_single form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'concurso', 'parsley-error')}"
+			tabindex="-1" id="concurso" name="concurso.id"
+			from="${com.smarttools.Concurso.list()}" optionKey="id" required=""
+			value="${videoInstance?.concurso?.id}" />
+	</div>
+</div>
 
 
 <div class="form-group">
-	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente">
-		<g:message code="video.cliente.label" default="Cliente" />
+	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente.username">
+		<g:message code="video.cliente.username.label" default="Username cliente" />
 		<span class="required">*</span>
 	</label>
-	<div class="col-md-4 col-sm-4 col-xs-12"><g:select class="select2_single form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'cliente', 'parsley-error')}" tabindex="-1" id="cliente" name="cliente.id" from="${com.smarttools.Persona.list()}" optionKey="id" required="" value="${videoInstance?.cliente?.id}"/></div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+		<g:field class="form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'cliente.username', 'parsley-error')}" 
+		type="email" name="cliente.username" required="" value="${videoInstance?.cliente?.username}"/>
+	</div>
 
 </div>
 
 <div class="form-group">
-	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="fechaCreacion">
-		<g:message code="video.fechaCreacion.label" default="Fecha Creacion" />
+	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente.nombres">
+		<g:message code="video.cliente.nombres.label" default="Nombres cliente" />
 		<span class="required">*</span>
 	</label>
-	<div class="col-md-4 col-sm-4 col-xs-12"><g:field class="form-control date-picker col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'fechaCreacion', 'parsley-error')}" name="fechaCreacion" type="text" precision="day"  value="${videoInstance?.fechaCreacion}"  /></div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+		<g:textField class="form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'cliente.nombres', 'parsley-error')}" 
+		name="cliente.nombres" required="" value="${videoInstance?.cliente?.nombres}"/>
+	</div>
 
 </div>
 
 <div class="form-group">
-	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="estado">
-		<g:message code="video.estado.label" default="Estado" />
+	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="cliente..apellidos">
+		<g:message code="video.cliente.apellidos.label" default="Apellidos cliente" />
 		<span class="required">*</span>
 	</label>
-	<div class="col-md-4 col-sm-4 col-xs-12"><g:select name="estado" class="select2_single form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'estado', 'parsley-error')}" from="${videoInstance.constraints.estado.inList}" required="" value="${videoInstance?.estado}" valueMessagePrefix="video.estado"/></div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+		<g:textField class="form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'cliente.apellidos', 'parsley-error')}" 
+		name="cliente.apellidos" required="" value="${videoInstance?.cliente?.apellidos}"/>
+	</div>
 
 </div>
 
@@ -34,18 +57,13 @@
 		<g:message code="video.archivoOriginal.label" default="Archivo Original" />
 		<span class="required">*</span>
 	</label>
-	<div class="col-md-4 col-sm-4 col-xs-12"><input class="form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'archivoOriginal', 'parsley-error')}" type="file" id="archivoOriginal" name="archivoOriginal" /></div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+		<g:field type="file" class="form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'archivoOriginal', 'parsley-error')}" 
+		id="archivoOriginal" name="archivoOriginalF"  accept=".avi,.wmv, .flv, .mp4"/>
+	</div>
 
 </div>
 
-<div class="form-group">
-	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="archivoConvertido">
-		<g:message code="video.archivoConvertido.label" default="Archivo Convertido" />
-		<span class="required">*</span>
-	</label>
-	<div class="col-md-4 col-sm-4 col-xs-12"><input class="form-control col-md-7 col-xs-12 ${hasErrors(bean:videoInstance, field:'archivoConvertido', 'parsley-error')}" type="file" id="archivoConvertido" name="archivoConvertido" /></div>
-
-</div>
 
 <div class="form-group">
 	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="mensajeProducto">

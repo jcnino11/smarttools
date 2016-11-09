@@ -1,6 +1,6 @@
 
 
-<%@ page import="com.smarttools.Concurso" %>
+<%@ page import="com.smarttools.Concurso"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,68 +46,80 @@
 						</div>
 						<br />
 						<ol class="property-list concurso">
-							
-				<g:if test="${concursoInstance?.administrador}">
-				<li class="fieldcontain">
-					<span id="administrador-label" class="property-label"><strong><g:message code="concurso.administrador.label" default="Administrador" />:</strong></span>
-					
-						<span class="property-value" aria-labelledby="administrador-label"><g:link controller="persona" action="show" id="${concursoInstance?.administrador?.id}">${concursoInstance?.administrador?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${concursoInstance?.nombre}">
-				<li class="fieldcontain">
-					<span id="nombre-label" class="property-label"><strong><g:message code="concurso.nombre.label" default="Nombre" />:</strong></span>
-					
-						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${concursoInstance}" field="nombre"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${concursoInstance?.banner}">
-				<li class="fieldcontain">
-					<span id="banner-label" class="property-label"><strong><g:message code="concurso.banner.label" default="Banner" />:</strong></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${concursoInstance?.url}">
-				<li class="fieldcontain">
-					<span id="url-label" class="property-label"><strong><g:message code="concurso.url.label" default="Url" />:</strong></span>
-					
-						<span class="property-value" aria-labelledby="url-label"><g:fieldValue bean="${concursoInstance}" field="url"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${concursoInstance?.fechaInicio}">
-				<li class="fieldcontain">
-					<span id="fechaInicio-label" class="property-label"><strong><g:message code="concurso.fechaInicio.label" default="Fecha Inicio" />:</strong></span>
-					
-						<span class="property-value" aria-labelledby="fechaInicio-label"><g:formatDate date="${concursoInstance?.fechaInicio}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${concursoInstance?.fechaFin}">
-				<li class="fieldcontain">
-					<span id="fechaFin-label" class="property-label"><strong><g:message code="concurso.fechaFin.label" default="Fecha Fin" />:</strong></span>
-					
-						<span class="property-value" aria-labelledby="fechaFin-label"><g:formatDate date="${concursoInstance?.fechaFin}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${concursoInstance?.descripcionPremio}">
-				<li class="fieldcontain">
-					<span id="descripcionPremio-label" class="property-label"><strong><g:message code="concurso.descripcionPremio.label" default="Descripcion Premio" />:</strong></span>
-					
-						<span class="property-value" aria-labelledby="descripcionPremio-label"><g:fieldValue bean="${concursoInstance}" field="descripcionPremio"/></span>
-					
-				</li>
-				</g:if>
-			
+
+							<g:if test="${concursoInstance?.administrador}">
+								<li class="fieldcontain"><span id="administrador-label"
+									class="property-label"><strong><g:message
+												code="concurso.administrador.label" default="Administrador" />:</strong></span>
+
+									<span class="property-value"
+									aria-labelledby="administrador-label"><g:link
+											controller="persona" action="show"
+											id="${concursoInstance?.administrador?.id}">
+											${concursoInstance?.administrador?.encodeAsHTML()}
+										</g:link></span></li>
+							</g:if>
+
+							<g:if test="${concursoInstance?.nombre}">
+								<li class="fieldcontain"><span id="nombre-label"
+									class="property-label"><strong><g:message
+												code="concurso.nombre.label" default="Nombre" />:</strong></span> <span
+									class="property-value" aria-labelledby="nombre-label"><g:fieldValue
+											bean="${concursoInstance}" field="nombre" /></span></li>
+							</g:if>
+
+							<g:if test="${concursoInstance?.banner}">
+								<li class="fieldcontain"><span id="banner-label"
+									class="property-label"> <img
+										src="data:image/png;base64,${concursoInstance.banner.encodeBase64()}" />
+								</span></li>
+							</g:if>
+
+							<g:if test="${concursoInstance?.url}">
+								<li class="fieldcontain"><span id="url-label"
+									class="property-label"><strong><g:message
+												code="concurso.url.label" default="Url" />:</strong></span> <span
+									class="property-value" aria-labelledby="url-label"><g:fieldValue
+											bean="${concursoInstance}" field="url" /></span></li>
+							</g:if>
+
+							<g:if test="${concursoInstance?.fechaInicio}">
+								<li class="fieldcontain"><span id="fechaInicio-label"
+									class="property-label"><strong><g:message
+												code="concurso.fechaInicio.label" default="Fecha Inicio" />:</strong></span>
+
+									<span class="property-value"
+									aria-labelledby="fechaInicio-label"><g:formatDate
+											date="${concursoInstance?.fechaInicio}" /></span></li>
+							</g:if>
+
+							<g:if test="${concursoInstance?.fechaFin}">
+								<li class="fieldcontain"><span id="fechaFin-label"
+									class="property-label"><strong><g:message
+												code="concurso.fechaFin.label" default="Fecha Fin" />:</strong></span> <span
+									class="property-value" aria-labelledby="fechaFin-label"><g:formatDate
+											date="${concursoInstance?.fechaFin}" /></span></li>
+							</g:if>
+
+							<g:if test="${concursoInstance?.descripcionPremio}">
+								<li class="fieldcontain"><span id="descripcionPremio-label"
+									class="property-label"><strong><g:message
+												code="concurso.descripcionPremio.label"
+												default="Descripcion Premio" />:</strong></span> <span
+									class="property-value"
+									aria-labelledby="descripcionPremio-label"><g:fieldValue
+											bean="${concursoInstance}" field="descripcionPremio" /></span></li>
+							</g:if>
+
+							<li class="fieldcontain"><span id="videos-label"
+								class="property-label"> <strong><g:message
+											code="concurso.videos.label" default="Videos concurso" />:</strong>
+							</span> <span class="property-value"
+								aria-labelledby="descripcionPremio-label"> <g:link
+										controller="video" action="index"
+										params="['concurso.id': concursoInstance?.id]">Ver videos</g:link>
+							</span></li>
+
 						</ol>
 						<div class="ln_solid"></div>
 						<g:form url="[resource:concursoInstance, action:'delete']"

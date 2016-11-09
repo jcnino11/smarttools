@@ -12,7 +12,7 @@
 		<g:select
 			class="select2_single form-control col-md-7 col-xs-12 ${hasErrors(bean:concursoInstance, field:'administrador', 'parsley-error')}"
 			tabindex="-1" id="administrador" name="administrador.id"
-			from="${com.smarttools.Persona.list()}" optionKey="id" required=""
+			from="${com.smarttools.Persona.getActual()}" optionKey="id" required=""
 			value="${concursoInstance?.administrador?.id}" />
 	</div>
 

@@ -2,22 +2,31 @@ package com.smarttools
 
 import groovy.transform.ToString
 
-@ToString(includes='mensajeProducto',includeNames=false, includePackage=false)
+@ToString(includeNames=false, includePackage=false)
 class Video {
+	
+	private static final Date NULL_DATE = new Date(0)
 
+	static belongsTo = [concurso:Concurso]
+	
 	Persona cliente
-	Date fechaCreacion
-	String estado
-	byte[] archivoOriginal
-	byte[] archivoConvertido
+	Date fechaCreacion = NULL_DATE
+	String estado = 'En proceso'
+	String archivoOriginal
+	String archivoConvertido
 	String mensajeProducto
 
     static constraints = {
 		cliente nullable: false
-		fechaCreacion min: new Date()
 		estado blank: false, inList: ['En proceso','Convertido']
-		archivoOriginal maxSize: 1024 * 1024 * 20
-		archivoConvertido maxSize: 1024 * 1024 * 20
-		mensajeProducto blank:false,  size:0..400
+		archivoOriginal nullable:true
+		archivoConvertido nullable:true
+		mensajeProducto blank:false
     }
+	
+	def beforeInsert() {
+		if (fechaCreacion == NULL_DATE) {
+		   fechaCreacion = new Date()
+		}
+	 }
 }

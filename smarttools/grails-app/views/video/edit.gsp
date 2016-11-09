@@ -57,8 +57,7 @@
 						</div>
 						<div class="x_content">
 							<br />
-							<g:form data-parsley-validate
-								class="form-horizontal form-label-left"
+							<g:form data-parsley-validate class="form-horizontal form-label-left"
 								url="[resource:videoInstance, action:'update']" method="PUT"
 								 enctype="multipart/form-data">
 								<g:hiddenField name="version"

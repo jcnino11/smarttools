@@ -1,397 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><g:layoutTitle default="Smart Tools"/></title>
+<title><g:layoutTitle default="Smart Tools" /></title>
 
-    <!-- Bootstrap -->
-    <asset:stylesheet src="../vendors/bootstrap/dist/css/bootstrap.min.css"/>
-    <!-- Font Awesome -->
-    <asset:stylesheet src="../vendors/font-awesome/css/font-awesome.min.css"/>
-    <!-- NProgress -->
-    <asset:stylesheet src="../vendors/nprogress/nprogress.css"/>
-    <!-- iCheck -->
-    <asset:stylesheet src="../vendors/iCheck/skins/flat/green.css"/>
-    <!-- bootstrap-progressbar -->
-    <asset:stylesheet src="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"/>
-    <!-- bootstrap-wysiwyg -->
-    <asset:stylesheet src="../vendors/google-code-prettify/bin/prettify.min.css"/>
-    <!-- Select2 -->
-    <asset:stylesheet src="../vendors/select2/dist/css/select2.min.css"/>
-    <!-- Switchery -->
-    <asset:stylesheet src="../vendors/switchery/dist/switchery.min.css"/>
-    <!-- starrr -->
-    <asset:stylesheet src="../vendors/starrr/dist/starrr.css"/>
-    <!-- JQVMap -->
-    <asset:stylesheet src="../vendors/jqvmap/dist/jqvmap.min.css"/>
-    <!-- Datatables -->
-    <asset:stylesheet src="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"/>
-    <asset:stylesheet src="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"/>
-    <asset:stylesheet src="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"/>
-    <asset:stylesheet src="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"/>
-    <asset:stylesheet src="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"/>
-    <!-- PNotify -->
-    <asset:stylesheet src="../vendors/pnotify/dist/pnotify.css"/>
-    <asset:stylesheet src="../vendors/pnotify/dist/pnotify.buttons.css"/>
-    <asset:stylesheet src="../vendors/pnotify/dist/pnotify.nonblock.css"/>
-    
-    <!-- Custom Theme Style -->
-    <asset:stylesheet src="../build/css/custom.min.css"/>
-    
-    <g:layoutHead/>
-  </head>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'bootstrap/dist/css/bootstrap.min.css')}" />
+<!-- Font Awesome -->
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'font-awesome/css/font-awesome.min.css')}" />
+<!-- Switchery -->
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'switchery/dist/switchery.min.css')}" />
+<!-- Datatables -->
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'datatables.net-bs/css/dataTables.bootstrap.min.css')}" />
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}" />
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}" />
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}" />
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}" />
+<!-- PNotify -->
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'pnotify/dist/pnotify.css')}" />
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'pnotify/dist/pnotify.buttons.css')}" />
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'vendors', file: 'pnotify/dist/pnotify.nonblock.css')}" />
 
-  <body class="nav-md">
-     <!-- jQuery -->
-	<asset:javascript src="../vendors/jquery/dist/jquery.min.js"/>
-	
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-            </div>
+<!-- Custom Theme Style -->
+<link rel="stylesheet" type="text/css"
+	href="${resource(dir: 'build', file: 'css/custom.min.css')}" />
 
-            <div class="clearfix"></div>
+<g:layoutHead />
+</head>
 
-            <!-- menu profile quick info -->
-            <div class="profile">
-              <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-              </div>
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
-            </div>
-            <!-- /menu profile quick info -->
+<body class="nav-md">
+	<!-- jQuery -->
+	<g:javascript src="../vendors/jquery/dist/jquery.min.js" />
 
-            <br />
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					<div class="navbar nav_title" style="border: 0;">
+						<g:link controller="dashboard" class="site_title">
+							<i class="fa fa-youtube-play"></i>
+							<span>Smart Tools</span>
+						</g:link>
+					</div>
 
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="icons.html">Icons</a></li>
-                      <li><a href="glyphicons.html">Glyphicons</a></li>
-                      <li><a href="widgets.html">Widgets</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> Data Presentation <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-clone"></i>Layouts <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                      <li><a href="fixed_footer.html">Fixed Footer</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <div class="menu_section">
-                <h3>Live On</h3>
-                <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="e_commerce.html">E-commerce</a></li>
-                      <li><a href="projects.html">Projects</a></li>
-                      <li><a href="project_detail.html">Project Detail</a></li>
-                      <li><a href="contacts.html">Contacts</a></li>
-                      <li><a href="profile.html">Profile</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-windows"></i> Extras <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="page_403.html">403 Error</a></li>
-                      <li><a href="page_404.html">404 Error</a></li>
-                      <li><a href="page_500.html">500 Error</a></li>
-                      <li><a href="plain_page.html">Plain Page</a></li>
-                      <li><a href="login.html">Login Page</a></li>
-                      <li><a href="pricing_tables.html">Pricing Tables</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                        <li><a href="#level1_1">Level One</a>
-                        <li><a>Level One<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="level2.html">Level Two</a>
-                            </li>
-                            <li><a href="#level2_1">Level Two</a>
-                            </li>
-                            <li><a href="#level2_2">Level Two</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a href="#level1_2">Level One</a>
-                        </li>
-                    </ul>
-                  </li>                  
-                  <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
-                </ul>
-              </div>
+					<div class="clearfix"></div>
 
-            </div>
-            <!-- /sidebar menu -->
+					<!-- menu profile quick info -->
+					<div class="profile">
+						<div class="profile_pic"></div>
+						<div class="profile_info">
+							<span>Bienvenido,</span> <br />
+							<h2>
+								<sec:loggedInUserInfo field='username' />
+							</h2>
+						</div>
+					</div>
+					<!-- /menu profile quick info -->
 
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
-          </div>
-        </div>
+					<br /> <br /> <br /> <br /> <br /> <br />
 
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-              </div>
+					<!-- sidebar menu -->
+					<sec:ifLoggedIn>
+						<div id="sidebar-menu"
+							class="main_menu_side hidden-print main_menu">
+							<div class="menu_section">
+								<h3>Entidades</h3>
+								<ul class="nav side-menu">
+									<li><a><i class="fa fa-group"></i> Persona <span
+											class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><g:link controller="persona" action="index">Listar</g:link></li>
+											<li><g:link controller="persona" action="create">Crear</g:link></li>
+										</ul></li>
+									<li><a><i class="fa fa-trophy"></i> Concurso <span
+											class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><g:link controller="concurso" action="index">Listar</g:link></li>
+											<li><g:link controller="concurso" action="create">Crear</g:link></li>
+										</ul></li>
+									<li><a><i class="fa fa-video-camera"></i> Video <span
+											class="fa fa-chevron-down"></span></a>
+										<ul class="nav child_menu">
+											<li><g:link controller="video" action="index">Listar</g:link></li>
+											<li><g:link controller="video" action="create">Crear</g:link></li>
+										</ul></li>
+								</ul>
+							</div>
+						</div>
+						<!-- /sidebar menu -->
 
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
-                    <span class=" fa fa-angle-down"></span>
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                  </ul>
-                </li>
+						<!-- /menu footer buttons -->
+						<div class="sidebar-footer hidden-small">
+							<g:link controller="logout" data-toggle="tooltip" data-placement="top" title="Logout">
+								<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+							</g:link>
+						</div>
+						<!-- /menu footer buttons -->
 
-                <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
-                  </a>
-                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                        <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
-                        </span>
-                        <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
-                        </span>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="text-center">
-                        <a>
-                          <strong>See All Alerts</strong>
-                          <i class="fa fa-angle-right"></i>
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-        <!-- /top navigation -->
+					</sec:ifLoggedIn>
+				</div>
+			</div>
 
-        <!-- page content -->
-		<g:layoutBody/>
-        <!-- /page content -->
-        
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
-    
-    <div id="custom_notifications" class="custom-notifications dsp_none">
-      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-      </ul>
-      <div class="clearfix"></div>
-      <div id="notif-group" class="tabbed_notifications"></div>
-    </div>
-    
-    <!-- Bootstrap -->
-	<asset:javascript src="../vendors/bootstrap/dist/js/bootstrap.min.js"/>
-    <!-- FastClick -->
-	<asset:javascript src="../vendors/fastclick/lib/fastclick.js"/>
-    <!-- NProgress -->
-	<asset:javascript src="../vendors/nprogress/nprogress.js"/>
-    <!-- Chart.js -->
-	<asset:javascript src="../vendors/Chart.js/dist/Chart.min.js"/>
-    <!-- gauge.js -->
-	<asset:javascript src="../vendors/gauge.js/dist/gauge.min.js"/>
-    <!-- bootstrap-progressbar -->
-	<asset:javascript src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"/>
-    <!-- iCheck -->
-	<asset:javascript src="../vendors/iCheck/icheck.min.js"/>
-    <!-- Skycons -->
-	<asset:javascript src="../vendors/skycons/skycons.js"/>
-    <!-- Flot -->
-	<asset:javascript src="../vendors/Flot/jquery.flot.js"/>
-	<asset:javascript src="../vendors/Flot/jquery.flot.pie.js"/>
-	<asset:javascript src="../vendors/Flot/jquery.flot.time.js"/>
-	<asset:javascript src="../vendors/Flot/jquery.flot.stack.js"/>
-	<asset:javascript src="../vendors/Flot/jquery.flot.resize.js"/>
-    <!-- Flot plugins -->
-	<asset:javascript src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"/>
-	<asset:javascript src="../vendors/flot-spline/js/jquery.flot.spline.min.js"/>
-	<asset:javascript src="../vendors/flot.curvedlines/curvedLines.js"/>
-    <!-- DateJS -->
-	<asset:javascript src="../vendors/DateJS/build/date.js"/>
-    <!-- JQVMap -->
-	<asset:javascript src="../vendors/jqvmap/dist/jquery.vmap.js"/>
-	<asset:javascript src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"/>
-	<asset:javascript src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"/>
+			<!-- top navigation -->
+			<div class="top_nav">
+				<div class="nav_menu">
+					<nav>
+						<div class="nav toggle">
+							<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<g:layoutBody />
+			<!-- /page content -->
+
+			<!-- footer content -->
+			<footer>
+				<div class="pull-right">
+					Gentelella - Bootstrap Admin Template by <a
+						href="https://colorlib.com">Colorlib</a>
+				</div>
+				<div class="clearfix"></div>
+			</footer>
+			<!-- /footer content -->
+		</div>
+	</div>
+
+	<div id="custom_notifications" class="custom-notifications dsp_none">
+		<ul class="list-unstyled notifications clearfix"
+			data-tabbed_notifications="notif-group">
+		</ul>
+		<div class="clearfix"></div>
+		<div id="notif-group" class="tabbed_notifications"></div>
+	</div>
+
+	<!-- Bootstrap -->
+	<g:javascript src="../vendors/bootstrap/dist/js/bootstrap.min.js" />
+	<!-- Flot -->
+	<g:javascript src="../vendors/Flot/jquery.flot.js" />
+	<g:javascript src="../vendors/Flot/jquery.flot.pie.js" />
+	<g:javascript src="../vendors/Flot/jquery.flot.time.js" />
+	<g:javascript src="../vendors/Flot/jquery.flot.stack.js" />
+	<g:javascript src="../vendors/Flot/jquery.flot.resize.js" />
+	<!-- Flot plugins -->
+	<g:javascript
+		src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js" />
+	<g:javascript src="../vendors/flot-spline/js/jquery.flot.spline.min.js" />
+	<g:javascript src="../vendors/flot.curvedlines/curvedLines.js" />
 	<!-- Datatables -->
-	<asset:javascript src="../vendors/datatables.net/js/jquery.dataTables.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-buttons/js/buttons.print.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"/>
-	<asset:javascript src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"/>
-	<asset:javascript src="../vendors/datatables.net-scroller/js/datatables.scroller.min.js"/>
-	<asset:javascript src="../vendors/jszip/dist/jszip.min.js"/>
-	<asset:javascript src="../vendors/pdfmake/build/pdfmake.min.js"/>
-	<asset:javascript src="../vendors/pdfmake/build/vfs_fonts.js"/>
-    <!-- PNotify -->
-	<asset:javascript src="../vendors/pnotify/dist/pnotify.js"/>
-	<asset:javascript src="../vendors/pnotify/dist/pnotify.buttons.js"/>
-	<asset:javascript src="../vendors/pnotify/dist/pnotify.nonblock.js"/>
-    <!-- bootstrap-daterangepicker -->
-    <asset:javascript src="../js/moment/moment.min.js"/>
-    <asset:javascript src="../js/datepicker/daterangepicker.js"/>
-    <!-- bootstrap-wysiwyg -->
-	<asset:javascript src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"/>
-	<asset:javascript src="../vendors/jquery.hotkeys/jquery.hotkeys.js"/>
-	<asset:javascript src="../vendors/google-code-prettify/src/prettify.js"/>
-    <!-- jQuery Tags Input -->
-	<asset:javascript src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"/>
-    <!-- Switchery -->
-	<asset:javascript src="../vendors/switchery/dist/switchery.min.js"/>
-    <!-- Select2 -->
-	<asset:javascript src="../vendors/select2/dist/js/select2.full.min.js"/>
-    <!-- Parsley -->
-	<asset:javascript src="../vendors/parsleyjs/dist/parsley.min.js"/>
-    <!-- Autosize -->
-	<asset:javascript src="../vendors/autosize/dist/autosize.min.js"/>
-    <!-- jQuery autocomplete -->
-	<asset:javascript src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"/>
-    <!-- starrr -->
-	<asset:javascript src="../vendors/starrr/dist/starrr.js"/>
+	<g:javascript
+		src="../vendors/datatables.net/js/jquery.dataTables.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-buttons/js/buttons.flash.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-buttons/js/buttons.html5.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-buttons/js/buttons.print.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js" />
+	<g:javascript
+		src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js" />
+	<g:javascript
+		src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js" />
+	<g:javascript src="../vendors/jszip/dist/jszip.min.js" />
+	<g:javascript src="../vendors/pdfmake/build/pdfmake.min.js" />
+	<g:javascript src="../vendors/pdfmake/build/vfs_fonts.js" />
+	<!-- PNotify -->
+	<g:javascript src="../vendors/pnotify/dist/pnotify.js" />
+	<g:javascript src="../vendors/pnotify/dist/pnotify.buttons.js" />
+	<g:javascript src="../vendors/pnotify/dist/pnotify.nonblock.js" />
+	<!-- bootstrap-daterangepicker -->
+	<g:javascript src="../js/moment/moment.min.js" />
+	<g:javascript src="../js/datepicker/daterangepicker.js" />
+	<!-- Switchery -->
+	<g:javascript src="../vendors/switchery/dist/switchery.min.js" />
+	<!-- Parsley -->
+	<g:javascript src="../vendors/parsleyjs/dist/parsley.min.js" />
 
-    <script>
+	<script>
+	var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
+    $BODY = $('body'),
+    $MENU_TOGGLE = $('#menu_toggle'),
+    $SIDEBAR_MENU = $('#sidebar-menu'),
+    $SIDEBAR_FOOTER = $('.sidebar-footer'),
+    $LEFT_COL = $('.left_col'),
+    $RIGHT_COL = $('.right_col'),
+    $NAV_MENU = $('.nav_menu'),
+    $FOOTER = $('footer');
       $(document).ready(function() {
+	  
+    // TODO: This is some kind of easy fix, maybe we can improve this
+    var setContentHeight = function () {
+        // reset height
+        $RIGHT_COL.css('min-height', $(window).height());
+
+        var bodyHeight = $BODY.outerHeight(),
+            footerHeight = $BODY.hasClass('footer_fixed') ? -10 : $FOOTER.height(),
+            leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
+            contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
+
+        // normalize content
+        contentHeight -= $NAV_MENU.height() + footerHeight;
+
+        $RIGHT_COL.css('min-height', contentHeight);
+    };
+
+    $SIDEBAR_MENU.find('a').on('click', function(ev) {
+        var $li = $(this).parent();
+
+        if ($li.is('.active')) {
+            $li.removeClass('active active-sm');
+            $('ul:first', $li).slideUp(function() {
+                setContentHeight();
+            });
+        } else {
+            // prevent closing menu if we are on child menu
+            if (!$li.parent().is('.child_menu')) {
+                $SIDEBAR_MENU.find('li').removeClass('active active-sm');
+                $SIDEBAR_MENU.find('li ul').slideUp();
+            }
+            
+            $li.addClass('active');
+
+            $('ul:first', $li).slideDown(function() {
+                setContentHeight();
+            });
+        }
+    });
+
+    // toggle small or large menu
+    $MENU_TOGGLE.on('click', function() {
+        if ($BODY.hasClass('nav-md')) {
+            $SIDEBAR_MENU.find('li.active ul').hide();
+            $SIDEBAR_MENU.find('li.active').addClass('active-sm').removeClass('active');
+        } else {
+            $SIDEBAR_MENU.find('li.active-sm ul').show();
+            $SIDEBAR_MENU.find('li.active-sm').addClass('active').removeClass('active-sm');
+        }
+
+        $BODY.toggleClass('nav-md nav-sm');
+
+        setContentHeight();
+    });
+
+    // check active menu
+    $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
+
+    $SIDEBAR_MENU.find('a').filter(function () {
+        return this.href == CURRENT_URL;
+    }).parent('li').addClass('current-page').parents('ul').slideDown(function() {
+        setContentHeight();
+    }).parent().addClass('active');
+
+    setContentHeight();
+
+    // fixed sidebar
+    if ($.fn.mCustomScrollbar) {
+        $('.menu_fixed').mCustomScrollbar({
+            autoHideScrollbar: true,
+            theme: 'minimal',
+            mouseWheel:{ preventDefault: true }
+        });
+    }
     	  /* ---------- Flot ---------- */
         var data1 = [
           [gd(2012, 1, 1), 17],
@@ -464,7 +363,6 @@
         }
         
         /* ---------- Datatables ---------- */
-        
     var handleDataTableButtons = function() {
       if ($("#datatable-buttons").length) {
         $("#datatable-buttons").DataTable({
@@ -474,7 +372,7 @@
 	            next:     '${message(code: 'default.paginate.prev', default: 'Anterior')}'
 	        },
 	        search: '${message(code: 'default.paginate.search', default: 'Buscar')}',
-	        info: "${message(code: 'default.paginate.info', default: 'Buscar', args:["_START_","_END_","_TOTAL_"])}",
+	        info: "${message(code: 'default.paginate.info', default: 'Buscar', args:["_START_","_END_","_TOTAL_"])}"
 	      },
           pageLength: 50,
           dom: "Bfrtip",
@@ -542,14 +440,9 @@
         { orderable: false, targets: [0] }
       ]
     });
-    $datatable.on('draw.dt', function() {
-      $('input').iCheck({
-        checkboxClass: 'icheckbox_flat-green'
-      });
-    });
 
     TableManageButtons.init();
-
+	
  	// Switchery
     if ($(".js-switch")[0]) {
         var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -609,28 +502,8 @@
 try {
     hljs.initHighlightingOnLoad();
   } catch (err) {}
-    
       });
     </script>
-
-    <!-- JQVMap -->
-    <script>
-      $(document).ready(function(){
-        $('#world-map-gdp').vectorMap({
-            map: 'world_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#666666',
-            enableZoom: true,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: ['#E6F2F0', '#149B7E'],
-            normalizeFunction: 'polynomial'
-        });
-      });
-    </script>
-    <!-- /JQVMap -->
 
     <!-- Skycons -->
     <script>
@@ -877,90 +750,6 @@ try {
     </script>
     <!-- /Custom Notification -->
 
-    <!-- bootstrap-wysiwyg -->
-    <script>
-      $(document).ready(function() {
-        function initToolbarBootstrapBindings() {
-          var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
-              'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
-              'Times New Roman', 'Verdana'
-            ],
-            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
-          $.each(fonts, function(idx, fontName) {
-            fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
-          });
-          $('a[title]').tooltip({
-            container: 'body'
-          });
-          $('.dropdown-menu input').click(function() {
-              return false;
-            })
-            .change(function() {
-              $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');
-            })
-            .keydown('esc', function() {
-              this.value = '';
-              $(this).change();
-            });
-
-          $('[data-role=magic-overlay]').each(function() {
-            var overlay = $(this),
-              target = $(overlay.data('target'));
-            overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
-          });
-
-          if ("onwebkitspeechchange" in document.createElement("input")) {
-            var editorOffset = $('#editor').offset();
-
-            $('.voiceBtn').css('position', 'absolute').offset({
-              top: editorOffset.top,
-              left: editorOffset.left + $('#editor').innerWidth() - 35
-            });
-          } else {
-            $('.voiceBtn').hide();
-          }
-        }
-
-        function showErrorAlert(reason, detail) {
-          var msg = '';
-          if (reason === 'unsupported-file-type') {
-            msg = "Unsupported format " + detail;
-          } else {
-            console.log("error uploading file", reason, detail);
-          }
-          $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
-            '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
-        }
-
-        initToolbarBootstrapBindings();
-
-        $('#editor').wysiwyg({
-          fileUploadError: showErrorAlert
-        });
-
-        window.prettyPrint;
-        prettyPrint();
-      });
-    </script>
-    <!-- /bootstrap-wysiwyg -->
-
-    <!-- Select2 -->
-    <script>
-      $(document).ready(function() {
-        $(".select2_single").select2({
-          placeholder: "Select a state",
-          allowClear: true
-        });
-        $(".select2_group").select2({});
-        $(".select2_multiple").select2({
-          maximumSelectionLength: 4,
-          placeholder: "With Max Selection limit 4",
-          allowClear: true
-        });
-      });
-    </script>
-    <!-- /Select2 -->
-
     <!-- jQuery Tags Input -->
     <script>
       function onAddTag(tag) {
@@ -1011,27 +800,8 @@ try {
     </script>
     <!-- /jQuery autocomplete -->
 
-    <!-- Starrr -->
-    <script>
-      $(document).ready(function() {
-        $(".stars").starrr();
-
-        $('.stars-existing').starrr({
-          rating: 4
-        });
-
-        $('.stars').on('starrr:change', function (e, value) {
-          $('.stars-count').html(value);
-        });
-
-        $('.stars-existing').on('starrr:change', function (e, value) {
-          $('.stars-count-existing').html(value);
-        });
-      });
-    </script>
-    <!-- /Starrr -->
-
     <!-- Custom Theme Scripts -->
-	<asset:javascript src="../build/js/custom.min.js"/>
+    
+	<g:javascript src="../build/js/custom.min.js" />
   </body>
 </html>

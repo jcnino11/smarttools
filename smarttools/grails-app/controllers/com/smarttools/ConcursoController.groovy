@@ -1,14 +1,14 @@
 package com.smarttools
 
 
-
+import java.text.DateFormat
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class ConcursoController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -20,7 +20,16 @@ class ConcursoController {
     }
 
     def create() {
-        respond new Concurso(params)
+		def concurso = new Concurso(params)
+		
+		def ultimo = Concurso.last()
+		if (ultimo){
+			concurso.url = 'http://localhost:8080/smarttools/concurso/show/' << (ultimo.id + 1)
+		}else{
+			concurso.url = 'http://localhost:8080/smarttools/concurso/show/1'
+		}
+		
+        respond concurso
     }
 
     @Transactional

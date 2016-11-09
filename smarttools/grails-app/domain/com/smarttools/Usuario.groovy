@@ -52,4 +52,12 @@ class Usuario implements Serializable {
 	static mapping = {
 		password column: '`password`'
 	}
+	
+	static Usuario getActual(){
+		return new Usuario().getInstanceActual()
+	}
+	
+	private Usuario getInstanceActual(){
+		springSecurityService.currentUser
+	}
 }

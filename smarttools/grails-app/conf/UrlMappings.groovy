@@ -7,9 +7,10 @@ class UrlMappings {
             }
         }
 
-        "/"(view:"/index")
-        "500"(view:'/error')
+        "/"(controller:'dashboard')
+        "403"(view:'/error_403')
+        "404"(view:'/error_404')
+        "500"(view:'/error_500')
 		"/login/$action?"(controller: "login")
-		"/logout/$action?"(controller: "logout")
 	}
 }

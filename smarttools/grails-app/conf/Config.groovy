@@ -11,6 +11,7 @@
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
 
+
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
@@ -30,6 +31,7 @@ grails.mime.types = [ // the first one is the default format
     hal:           ['application/hal+json','application/hal+xml'],
     xml:           ['text/xml', 'application/xml']
 ]
+
 
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
@@ -123,6 +125,7 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.smarttools
 grails.plugin.springsecurity.authority.className = 'com.smarttools.Rol'
 grails.plugin.springsecurity.requestMap.className = 'com.smarttools.Requestmap'
 grails.plugin.springsecurity.securityConfigType = 'Requestmap'
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],
 	'/index':           ['permitAll'],
@@ -133,18 +136,56 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':    ['permitAll'],
 	'/**/favicon.ico':  ['permitAll']
 ]
+//grails.plugin.springsecurity.useSecurityEventListener = true
+//grails.plugin.springsecurity.sch.strategyName = "com.smarttools.MySecurityContextHolder"
+//grails.plugin.springsecurity.providerNames = ['rememberMeAuthenticationProvider']
+grails.plugin.springsecurity.rememberMe.persistent = true
+grails.plugin.springsecurity.rememberMe.persistentToken.domainClassName = 'com.smarttools.PersistentLogin'
+grails.plugin.springsecurity.rememberMe.alwaysRemember = true
 
+grails {
+	plugin {
+		awssdk {
+			accessKey = 'AKIAI4FWUQSASEDBTKMQ'    // Default access key
+			secretKey = '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'    // Default secret key
+			region = 'US Standard'        // Default region
+			s3 {}
+		}
+	}
+}
 
+grails {
+	mongo {
+		databaseName = 'smarttools'
+		host = "ec2-54-208-69-12.compute-1.amazonaws.com"
+		port = 27017
+	}
+}
 
-// Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                ['permitAll'],
-	'/index':           ['permitAll'],
-	'/index.gsp':       ['permitAll'],
-	'/assets/**':       ['permitAll'],
-	'/**/js/**':        ['permitAll'],
-	'/**/css/**':       ['permitAll'],
-	'/**/images/**':    ['permitAll'],
-	'/**/favicon.ico':  ['permitAll']
-]
+grails {
+	redis {
+		poolConfig {
+			// jedis pool specific tweaks here, see jedis docs & src
+			// ex: testWhileIdle = true
+		}
+		timeout = 2000 //default in milliseconds
+		password = "p3fifhm6c1bnoe9vha1nvqp1ho" //defaults to no password
 
+		// requires either host & port combo, or a sentinels and masterName combo
+
+		// use a single redis server (use only if nore using sentinel cluster)
+		port = 11389
+		host = "ec2-54-235-215-22.compute-1.amazonaws.com"
+	}
+}
+
+grails {
+	plugin {
+		awssdk {
+			accessKey = 'AKIAI4FWUQSASEDBTKMQ'    // Default access key
+			secretKey = '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'    // Default secret key
+			region = 'US Standard'        // Default region
+			s3 {}
+		}
+	}
+}

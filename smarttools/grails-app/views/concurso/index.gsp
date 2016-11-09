@@ -48,7 +48,7 @@
 					
 						<g:sortableColumn property="nombre" title="${message(code: 'concurso.nombre.label', default: 'Nombre')}" />
 					
-						<g:sortableColumn property="banner" title="${message(code: 'concurso.banner.label', default: 'Banner')}" />
+						
 					
 						<g:sortableColumn property="url" title="${message(code: 'concurso.url.label', default: 'Url')}" />
 					
@@ -66,9 +66,9 @@
 					
 						<td>${fieldValue(bean: concursoInstance, field: "nombre")}</td>
 					
-						<td>${fieldValue(bean: concursoInstance, field: "banner")}</td>
+						
 					
-						<td>${fieldValue(bean: concursoInstance, field: "url")}</td>
+						<td><a href="${fieldValue(bean: concursoInstance, field: "url")}">${fieldValue(bean: concursoInstance, field: "url")}</a></td>
 					
 						<td><g:formatDate date="${concursoInstance.fechaInicio}" /></td>
 					
