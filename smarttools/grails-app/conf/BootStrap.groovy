@@ -12,6 +12,10 @@ class BootStrap {
 			return (delegate.scheme + "://" + delegate.serverName + ":" + delegate.serverPort + delegate.getContextPath())
 		}
 		
+		for (param in Parametro.list()){
+			param.delete()
+		}
+		
 		if (!Requestmap.findByConfigAttribute('IS_AUTHENTICATED_ANONYMOUSLY')){
 			new Requestmap(configAttribute:'IS_AUTHENTICATED_ANONYMOUSLY', url:'/**').save()
 		}
